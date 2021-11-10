@@ -17,7 +17,7 @@ NEWSPIDER_MODULE = 'ETL.spiders'
 #USER_AGENT = 'ETL (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 CONCURRENT_REQUESTS = 16
@@ -42,6 +42,7 @@ COOKIES_ENABLED = False
 #   'Accept-Language': 'en',
 #}
 
+# LOG_LEVEL='ERROR'
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 SPIDER_MIDDLEWARES = {

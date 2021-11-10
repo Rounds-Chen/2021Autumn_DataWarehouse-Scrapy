@@ -38,7 +38,6 @@ class ProxyFetcher(object):
                 yield ':'.join(proxy)
 
 class RandomProxyMiddleware(object):
-
     def __init__(self):
         # 第三步 初始化配置和变量
         # 在settings中写一个 PROXIES 列表配置
@@ -48,8 +47,9 @@ class RandomProxyMiddleware(object):
         for _ in p:
             self.proxies.append(_)
 
+        self.proxies_len=len(self.proxies)
         self.stats = defaultdict(int)  # 默认值是0    统计次数
-        self.max_failed = 3  # 请求最多不超过3次
+        self.max_failed = 5  # 请求最多不超过3次
 
 
     @classmethod
@@ -63,6 +63,11 @@ class RandomProxyMiddleware(object):
         return cls(crawler.settings)  # cls（）实际调用的是 init()函数，如果init接受参数，cls就需要参数
 
     def process_request(self, request, spider):
+        if len(self.proxies)<10:
+            p = ProxyFetcher().freeProxy13()
+            for _ in p:
+                self.proxies.append(_)
+                self.proxies_len+=1
         # 第四步 为每个request对象随机分配一个ip代理
         # 让这个请求使用代理                       初始url不使用代理ip
         if self.proxies and not request.meta.get("proxy") and request.url not in spider.start_urls:
@@ -103,4 +108,5 @@ class RandomProxyMiddleware(object):
     def remove_proxy(self, proxy):
         if proxy in self.proxies:
             self.proxies.remove(proxy)
+            self.proxies_len-=1
             print("从代理列表中删除{}".format(proxy))
