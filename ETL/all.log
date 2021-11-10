@@ -1,0 +1,490 @@
+2021-11-08 10:32:22 [scrapy.utils.log] INFO: Scrapy 2.4.1 started (bot: ETL)
+2021-11-08 10:32:22 [scrapy.utils.log] INFO: Versions: lxml 4.6.3.0, libxml2 2.9.12, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 21.2.0, Python 3.7.7 (default, May  6 2020, 11:45:54) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 21.0.0 (OpenSSL 1.1.1l  24 Aug 2021), cryptography 35.0.0, Platform Windows-10-10.0.19041-SP0
+2021-11-08 10:32:22 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2021-11-08 10:32:22 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'ETL',
+ 'COOKIES_ENABLED': False,
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'ETL.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['ETL.spiders']}
+2021-11-08 10:32:22 [scrapy.extensions.telnet] INFO: Telnet Password: 3eccd7c93caf4c64
+2021-11-08 10:32:22 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2021-11-08 10:32:23 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2021-11-08 10:32:23 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): 127.0.0.1:7890
+2021-11-08 10:32:25 [urllib3.connectionpool] DEBUG: http://127.0.0.1:7890 "GET http://www.89ip.cn/index_1.html HTTP/1.1" 301 168
+2021-11-08 10:32:25 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.89ip.cn:443
+2021-11-08 10:32:26 [urllib3.connectionpool] DEBUG: https://www.89ip.cn:443 "GET /index_1.html HTTP/1.1" 200 None
+2021-11-08 10:32:26 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): 127.0.0.1:7890
+2021-11-08 10:32:27 [urllib3.connectionpool] DEBUG: http://127.0.0.1:7890 "GET http://www.89ip.cn/index_2.html HTTP/1.1" 301 168
+2021-11-08 10:32:27 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.89ip.cn:443
+2021-11-08 10:32:28 [urllib3.connectionpool] DEBUG: https://www.89ip.cn:443 "GET /index_2.html HTTP/1.1" 200 None
+2021-11-08 10:32:28 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): 127.0.0.1:7890
+2021-11-08 10:32:30 [urllib3.connectionpool] DEBUG: http://127.0.0.1:7890 "GET http://www.89ip.cn/index_3.html HTTP/1.1" 301 168
+2021-11-08 10:32:30 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.89ip.cn:443
+2021-11-08 10:32:31 [urllib3.connectionpool] DEBUG: https://www.89ip.cn:443 "GET /index_3.html HTTP/1.1" 200 None
+2021-11-08 10:32:31 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): 127.0.0.1:7890
+2021-11-08 10:32:32 [urllib3.connectionpool] DEBUG: http://127.0.0.1:7890 "GET http://www.89ip.cn/index_4.html HTTP/1.1" 301 168
+2021-11-08 10:32:32 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.89ip.cn:443
+2021-11-08 10:32:36 [twisted] CRITICAL: Unhandled error in Deferred:
+2021-11-08 10:32:36 [twisted] CRITICAL: 
+Traceback (most recent call last):
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\urllib3\contrib\pyopenssl.py", line 456, in wrap_socket
+    cnx.do_handshake()
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\OpenSSL\SSL.py", line 1894, in do_handshake
+    self._raise_ssl_error(self._ssl, result)
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\OpenSSL\SSL.py", line 1625, in _raise_ssl_error
+    raise SysCallError(-1, "Unexpected EOF")
+OpenSSL.SSL.SysCallError: (-1, 'Unexpected EOF')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\urllib3\connectionpool.py", line 594, in urlopen
+    self._prepare_proxy(conn)
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\urllib3\connectionpool.py", line 805, in _prepare_proxy
+    conn.connect()
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\urllib3\connection.py", line 344, in connect
+    ssl_context=context)
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\urllib3\util\ssl_.py", line 345, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\urllib3\contrib\pyopenssl.py", line 462, in wrap_socket
+    raise ssl.SSLError('bad handshake: %r' % e)
+ssl.SSLError: ("bad handshake: SysCallError(-1, 'Unexpected EOF')",)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\urllib3\connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\urllib3\util\retry.py", line 399, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.89ip.cn', port=443): Max retries exceeded with url: /index_4.html (Caused by SSLError(SSLError("bad handshake: SysCallError(-1, 'Unexpected EOF')")))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\twisted\internet\defer.py", line 1445, in _inlineCallbacks
+    result = current_context.run(g.send, result)
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\scrapy\crawler.py", line 87, in crawl
+    self.engine = self._create_engine()
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\scrapy\crawler.py", line 101, in _create_engine
+    return ExecutionEngine(self, lambda _: self.stop())
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\scrapy\core\engine.py", line 70, in __init__
+    self.scraper = Scraper(crawler)
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\scrapy\core\scraper.py", line 69, in __init__
+    self.spidermw = SpiderMiddlewareManager.from_crawler(crawler)
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\scrapy\middleware.py", line 53, in from_crawler
+    return cls.from_settings(crawler.settings, crawler)
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\scrapy\middleware.py", line 35, in from_settings
+    mw = create_instance(mwcls, settings, crawler)
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\scrapy\utils\misc.py", line 173, in create_instance
+    instance = objcls(*args, **kwargs)
+  File "C:\Users\round\PycharmProjects\ETL\ETL\ETL\middlewares\ProxyMiddleware.py", line 48, in __init__
+    for _ in p:
+  File "C:\Users\round\PycharmProjects\ETL\ETL\ETL\middlewares\ProxyMiddleware.py", line 33, in freeProxy13
+    r = requests.get(url, timeout=10)
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\requests\api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\requests\sessions.py", line 524, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\requests\sessions.py", line 659, in send
+    history = [resp for resp in gen] if allow_redirects else []
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\requests\sessions.py", line 659, in <listcomp>
+    history = [resp for resp in gen] if allow_redirects else []
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\requests\sessions.py", line 238, in resolve_redirects
+    **adapter_kwargs
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\requests\sessions.py", line 637, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\requests\adapters.py", line 514, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='www.89ip.cn', port=443): Max retries exceeded with url: /index_4.html (Caused by SSLError(SSLError("bad handshake: SysCallError(-1, 'Unexpected EOF')")))
+2021-11-08 10:33:36 [scrapy.utils.log] INFO: Scrapy 2.4.1 started (bot: ETL)
+2021-11-08 10:33:36 [scrapy.utils.log] INFO: Versions: lxml 4.6.3.0, libxml2 2.9.12, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 21.2.0, Python 3.7.7 (default, May  6 2020, 11:45:54) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 21.0.0 (OpenSSL 1.1.1l  24 Aug 2021), cryptography 35.0.0, Platform Windows-10-10.0.19041-SP0
+2021-11-08 10:33:36 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2021-11-08 10:33:36 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'ETL',
+ 'COOKIES_ENABLED': False,
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'ETL.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['ETL.spiders']}
+2021-11-08 10:33:36 [scrapy.extensions.telnet] INFO: Telnet Password: d102d8821cd83d39
+2021-11-08 10:33:36 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2021-11-08 10:33:37 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2021-11-08 10:33:37 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): www.89ip.cn:80
+2021-11-08 10:33:38 [urllib3.connectionpool] DEBUG: http://www.89ip.cn:80 "GET /index_1.html HTTP/1.1" 301 168
+2021-11-08 10:33:38 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.89ip.cn:443
+2021-11-08 10:33:39 [urllib3.connectionpool] DEBUG: https://www.89ip.cn:443 "GET /index_1.html HTTP/1.1" 200 None
+2021-11-08 10:33:39 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): www.89ip.cn:80
+2021-11-08 10:33:39 [urllib3.connectionpool] DEBUG: http://www.89ip.cn:80 "GET /index_2.html HTTP/1.1" 301 168
+2021-11-08 10:33:39 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.89ip.cn:443
+2021-11-08 10:33:39 [urllib3.connectionpool] DEBUG: https://www.89ip.cn:443 "GET /index_2.html HTTP/1.1" 200 None
+2021-11-08 10:33:39 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): www.89ip.cn:80
+2021-11-08 10:33:40 [urllib3.connectionpool] DEBUG: http://www.89ip.cn:80 "GET /index_3.html HTTP/1.1" 301 168
+2021-11-08 10:33:40 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.89ip.cn:443
+2021-11-08 10:33:40 [urllib3.connectionpool] DEBUG: https://www.89ip.cn:443 "GET /index_3.html HTTP/1.1" 200 None
+2021-11-08 10:33:40 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): www.89ip.cn:80
+2021-11-08 10:33:40 [urllib3.connectionpool] DEBUG: http://www.89ip.cn:80 "GET /index_4.html HTTP/1.1" 301 168
+2021-11-08 10:33:40 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.89ip.cn:443
+2021-11-08 10:33:41 [urllib3.connectionpool] DEBUG: https://www.89ip.cn:443 "GET /index_4.html HTTP/1.1" 200 None
+2021-11-08 10:33:41 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): www.89ip.cn:80
+2021-11-08 10:33:41 [urllib3.connectionpool] DEBUG: http://www.89ip.cn:80 "GET /index_5.html HTTP/1.1" 301 168
+2021-11-08 10:33:41 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.89ip.cn:443
+2021-11-08 10:33:41 [urllib3.connectionpool] DEBUG: https://www.89ip.cn:443 "GET /index_5.html HTTP/1.1" 200 None
+2021-11-08 10:33:41 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'ETL.middlewares.ProxyMiddleware.RandomProxyMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2021-11-08 10:33:41 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2021-11-08 10:33:41 [scrapy.core.engine] INFO: Spider opened
+2021-11-08 10:33:41 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2021-11-08 10:33:41 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2021-11-08 10:33:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/robots.txt> (referer: None)
+2021-11-08 10:33:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/dp/B005L0XY5C> (referer: None)
+2021-11-08 10:33:44 [scrapy.core.engine] DEBUG: Crawled (404) <GET https://www.amazon.com/dp/4> (referer: None)
+2021-11-08 10:33:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/dp/B00UXWCPFI> (referer: None)
+2021-11-08 10:33:45 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://www.amazon.com/dp/4>: HTTP status code is not handled or not allowed
+2021-11-08 10:33:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.amazon.com/dp/B005L0XY5C>
+{'id': 'B005L0XY5C\n', 'price': None, 'title': "BETHENNY'S SKINNYGIRL WORKOUT"}
+2021-11-08 10:33:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/dp/B0074JOVGY> (referer: None)
+2021-11-08 10:33:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/dp/B008R65XWO> (referer: None)
+2021-11-08 10:33:45 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://www.amazon.com/b?node=20547412011> from <GET https://www.amazon.com/dp/>
+2021-11-08 10:33:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/dp/B00HEPCRLE> (referer: None)
+2021-11-08 10:33:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.amazon.com/dp/B00UXWCPFI>
+{'id': 'B00UXWCPFI\n', 'price': None, 'title': 'Nobunagun: Complete Series'}
+2021-11-08 10:33:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/dp/B00XL9OXXC> (referer: None)
+2021-11-08 10:33:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.amazon.com/dp/B0074JOVGY>
+{'id': 'B0074JOVGY\n', 'price': None, 'title': 'Interlude'}
+2021-11-08 10:33:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.amazon.com/dp/B008R65XWO>
+{'id': 'B008R65XWO\n',
+ 'price': None,
+ 'title': 'Definitely, Maybe / Because I Said So Double Feature'}
+2021-11-08 10:33:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.amazon.com/dp/B00HEPCRLE>
+{'id': 'B00HEPCRLE\n', 'price': None, 'title': 'Homefront'}
+2021-11-08 10:33:45 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://www.amazon.com/b?ie=UTF8&node=20547412011> from <GET https://www.amazon.com/b?node=20547412011>
+2021-11-08 10:33:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.amazon.com/dp/B00XL9OXXC>
+{'id': 'B00XL9OXXC\n', 'price': None, 'title': 'Community - Season 6'}
+2021-11-08 10:33:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/b?ie=UTF8&node=20547412011> (referer: None)
+2021-11-08 10:33:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/dp/B00AZ64CSK> (referer: None)
+2021-11-08 10:33:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.amazon.com/b?ie=UTF8&node=20547412011>
+{'id': '\n'}
+2021-11-08 10:33:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.amazon.com/dp/B00AZ64CSK>
+{'id': 'B00AZ64CSK\n', 'price': None, 'title': 'Clash of the Empires'}
+2021-11-08 10:33:47 [scrapy.core.engine] INFO: Closing spider (finished)
+2021-11-08 10:33:47 [scrapy.extensions.feedexport] INFO: Stored json feed (8 items) in: res.json
+2021-11-08 10:33:47 [scrapy.utils.signal] ERROR: Error caught on signal handler: <bound method Demo.close of <Demo 'Demo' at 0x20798d52048>>
+Traceback (most recent call last):
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\scrapy\utils\defer.py", line 157, in maybeDeferred_coro
+    result = f(*args, **kw)
+  File "C:\Users\round\anaconda3\envs\TF2.1\lib\site-packages\pydispatch\robustapply.py", line 55, in robustApply
+    return receiver(*arguments, **named)
+  File "C:\Users\round\PycharmProjects\ETL\ETL\ETL\spiders\Demo.py", line 19, in close
+    f.write(self.error_id) # 写入错误信息
+TypeError: write() argument must be str, not list
+2021-11-08 10:33:47 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 3461,
+ 'downloader/request_count': 12,
+ 'downloader/request_method_count/GET': 12,
+ 'downloader/response_bytes': 1729780,
+ 'downloader/response_count': 12,
+ 'downloader/response_status_count/200': 9,
+ 'downloader/response_status_count/301': 2,
+ 'downloader/response_status_count/404': 1,
+ 'elapsed_time_seconds': 5.433993,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2021, 11, 8, 2, 33, 47, 137466),
+ 'httperror/response_ignored_count': 1,
+ 'httperror/response_ignored_status_count/404': 1,
+ 'item_scraped_count': 8,
+ 'log_count/DEBUG': 40,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 12,
+ 'response_received_count': 10,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 11,
+ 'scheduler/dequeued/memory': 11,
+ 'scheduler/enqueued': 11,
+ 'scheduler/enqueued/memory': 11,
+ 'start_time': datetime.datetime(2021, 11, 8, 2, 33, 41, 703473)}
+2021-11-08 10:33:47 [scrapy.core.engine] INFO: Spider closed (finished)
+2021-11-08 10:34:46 [scrapy.utils.log] INFO: Scrapy 2.4.1 started (bot: ETL)
+2021-11-08 10:34:46 [scrapy.utils.log] INFO: Versions: lxml 4.6.3.0, libxml2 2.9.12, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 21.2.0, Python 3.7.7 (default, May  6 2020, 11:45:54) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 21.0.0 (OpenSSL 1.1.1l  24 Aug 2021), cryptography 35.0.0, Platform Windows-10-10.0.19041-SP0
+2021-11-08 10:34:46 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2021-11-08 10:34:46 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'ETL',
+ 'COOKIES_ENABLED': False,
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'ETL.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['ETL.spiders']}
+2021-11-08 10:34:46 [scrapy.extensions.telnet] INFO: Telnet Password: 51ddf5acc4e81eb0
+2021-11-08 10:34:46 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2021-11-08 10:34:47 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2021-11-08 10:34:47 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): www.89ip.cn:80
+2021-11-08 10:34:47 [urllib3.connectionpool] DEBUG: http://www.89ip.cn:80 "GET /index_1.html HTTP/1.1" 301 168
+2021-11-08 10:34:47 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.89ip.cn:443
+2021-11-08 10:34:47 [urllib3.connectionpool] DEBUG: https://www.89ip.cn:443 "GET /index_1.html HTTP/1.1" 200 None
+2021-11-08 10:34:47 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): www.89ip.cn:80
+2021-11-08 10:34:47 [urllib3.connectionpool] DEBUG: http://www.89ip.cn:80 "GET /index_2.html HTTP/1.1" 301 168
+2021-11-08 10:34:47 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.89ip.cn:443
+2021-11-08 10:34:47 [urllib3.connectionpool] DEBUG: https://www.89ip.cn:443 "GET /index_2.html HTTP/1.1" 200 None
+2021-11-08 10:34:48 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): www.89ip.cn:80
+2021-11-08 10:34:48 [urllib3.connectionpool] DEBUG: http://www.89ip.cn:80 "GET /index_3.html HTTP/1.1" 301 168
+2021-11-08 10:34:48 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.89ip.cn:443
+2021-11-08 10:34:48 [urllib3.connectionpool] DEBUG: https://www.89ip.cn:443 "GET /index_3.html HTTP/1.1" 200 None
+2021-11-08 10:34:48 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): www.89ip.cn:80
+2021-11-08 10:34:49 [urllib3.connectionpool] DEBUG: http://www.89ip.cn:80 "GET /index_4.html HTTP/1.1" 301 168
+2021-11-08 10:34:49 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.89ip.cn:443
+2021-11-08 10:34:49 [urllib3.connectionpool] DEBUG: https://www.89ip.cn:443 "GET /index_4.html HTTP/1.1" 200 None
+2021-11-08 10:34:49 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): www.89ip.cn:80
+2021-11-08 10:34:49 [urllib3.connectionpool] DEBUG: http://www.89ip.cn:80 "GET /index_5.html HTTP/1.1" 301 168
+2021-11-08 10:34:49 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.89ip.cn:443
+2021-11-08 10:34:49 [urllib3.connectionpool] DEBUG: https://www.89ip.cn:443 "GET /index_5.html HTTP/1.1" 200 None
+2021-11-08 10:34:49 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'ETL.middlewares.ProxyMiddleware.RandomProxyMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2021-11-08 10:34:49 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2021-11-08 10:34:49 [scrapy.core.engine] INFO: Spider opened
+2021-11-08 10:34:49 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2021-11-08 10:34:49 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2021-11-08 10:34:51 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/robots.txt> (referer: None)
+2021-11-08 10:34:51 [scrapy.core.engine] DEBUG: Crawled (404) <GET https://www.amazon.com/dp/4> (referer: None)
+2021-11-08 10:34:51 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://www.amazon.com/dp/4>: HTTP status code is not handled or not allowed
+2021-11-08 10:34:51 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://www.amazon.com/b?node=20547412011> from <GET https://www.amazon.com/dp/>
+2021-11-08 10:34:52 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://www.amazon.com/b?ie=UTF8&node=20547412011> from <GET https://www.amazon.com/b?node=20547412011>
+2021-11-08 10:34:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/dp/B00UXWCPFI> (referer: None)
+2021-11-08 10:34:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/dp/B005L0XY5C> (referer: None)
+2021-11-08 10:34:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/dp/B00HEPCRLE> (referer: None)
+2021-11-08 10:34:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.amazon.com/dp/B00UXWCPFI>
+{'id': 'B00UXWCPFI\n', 'price': None, 'title': 'Nobunagun: Complete Series'}
+2021-11-08 10:34:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/b?ie=UTF8&node=20547412011> (referer: None)
+2021-11-08 10:34:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.amazon.com/dp/B005L0XY5C>
+{'id': 'B005L0XY5C\n', 'price': None, 'title': "BETHENNY'S SKINNYGIRL WORKOUT"}
+2021-11-08 10:34:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/dp/B00XL9OXXC> (referer: None)
+2021-11-08 10:34:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.amazon.com/dp/B00HEPCRLE>
+{'id': 'B00HEPCRLE\n', 'price': None, 'title': 'Homefront'}
+2021-11-08 10:34:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/dp/B0074JOVGY> (referer: None)
+2021-11-08 10:34:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.amazon.com/b?ie=UTF8&node=20547412011>
+{'id': '\n'}
+2021-11-08 10:34:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.amazon.com/dp/B00XL9OXXC>
+{'id': 'B00XL9OXXC\n', 'price': None, 'title': 'Community - Season 6'}
+2021-11-08 10:34:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.amazon.com/dp/B0074JOVGY>
+{'id': 'B0074JOVGY\n', 'price': None, 'title': 'Interlude'}
+2021-11-08 10:34:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/dp/B00AZ64CSK> (referer: None)
+2021-11-08 10:34:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.amazon.com/dp/B00AZ64CSK>
+{'id': 'B00AZ64CSK\n', 'price': None, 'title': 'Clash of the Empires'}
+2021-11-08 10:34:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/dp/B008R65XWO> (referer: None)
+2021-11-08 10:34:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.amazon.com/dp/B008R65XWO>
+{'id': 'B008R65XWO\n',
+ 'price': None,
+ 'title': 'Definitely, Maybe / Because I Said So Double Feature'}
+2021-11-08 10:34:54 [scrapy.core.engine] INFO: Closing spider (finished)
+2021-11-08 10:34:54 [scrapy.extensions.feedexport] INFO: Stored json feed (8 items) in: res.json
+2021-11-08 10:34:54 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 3461,
+ 'downloader/request_count': 12,
+ 'downloader/request_method_count/GET': 12,
+ 'downloader/response_bytes': 1728033,
+ 'downloader/response_count': 12,
+ 'downloader/response_status_count/200': 9,
+ 'downloader/response_status_count/301': 2,
+ 'downloader/response_status_count/404': 1,
+ 'elapsed_time_seconds': 4.500961,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2021, 11, 8, 2, 34, 54, 437238),
+ 'httperror/response_ignored_count': 1,
+ 'httperror/response_ignored_status_count/404': 1,
+ 'item_scraped_count': 8,
+ 'log_count/DEBUG': 40,
+ 'log_count/INFO': 12,
+ 'response_received_count': 10,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 11,
+ 'scheduler/dequeued/memory': 11,
+ 'scheduler/enqueued': 11,
+ 'scheduler/enqueued/memory': 11,
+ 'start_time': datetime.datetime(2021, 11, 8, 2, 34, 49, 936277)}
+2021-11-08 10:34:54 [scrapy.core.engine] INFO: Spider closed (finished)
+2021-11-08 10:56:55 [scrapy.utils.log] INFO: Scrapy 2.4.1 started (bot: ETL)
+2021-11-08 10:56:55 [scrapy.utils.log] INFO: Versions: lxml 4.6.3.0, libxml2 2.9.12, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 21.2.0, Python 3.7.7 (default, May  6 2020, 11:45:54) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 21.0.0 (OpenSSL 1.1.1l  24 Aug 2021), cryptography 35.0.0, Platform Windows-10-10.0.19041-SP0
+2021-11-08 10:56:55 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2021-11-08 10:56:55 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'ETL',
+ 'COOKIES_ENABLED': False,
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'ETL.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['ETL.spiders']}
+2021-11-08 10:56:55 [scrapy.extensions.telnet] INFO: Telnet Password: c27e601402af1ce0
+2021-11-08 10:56:55 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2021-11-08 10:56:56 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2021-11-08 10:56:56 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): www.89ip.cn:80
+2021-11-08 10:56:56 [urllib3.connectionpool] DEBUG: http://www.89ip.cn:80 "GET /index_1.html HTTP/1.1" 301 168
+2021-11-08 10:56:56 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.89ip.cn:443
+2021-11-08 10:56:56 [urllib3.connectionpool] DEBUG: https://www.89ip.cn:443 "GET /index_1.html HTTP/1.1" 200 None
+2021-11-08 10:56:56 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): www.89ip.cn:80
+2021-11-08 10:56:57 [urllib3.connectionpool] DEBUG: http://www.89ip.cn:80 "GET /index_2.html HTTP/1.1" 301 168
+2021-11-08 10:56:57 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.89ip.cn:443
+2021-11-08 10:56:57 [urllib3.connectionpool] DEBUG: https://www.89ip.cn:443 "GET /index_2.html HTTP/1.1" 200 None
+2021-11-08 10:56:57 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): www.89ip.cn:80
+2021-11-08 10:56:57 [urllib3.connectionpool] DEBUG: http://www.89ip.cn:80 "GET /index_3.html HTTP/1.1" 301 168
+2021-11-08 10:56:57 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.89ip.cn:443
+2021-11-08 10:56:57 [urllib3.connectionpool] DEBUG: https://www.89ip.cn:443 "GET /index_3.html HTTP/1.1" 200 None
+2021-11-08 10:56:57 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): www.89ip.cn:80
+2021-11-08 10:56:57 [urllib3.connectionpool] DEBUG: http://www.89ip.cn:80 "GET /index_4.html HTTP/1.1" 301 168
+2021-11-08 10:56:57 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.89ip.cn:443
+2021-11-08 10:56:58 [urllib3.connectionpool] DEBUG: https://www.89ip.cn:443 "GET /index_4.html HTTP/1.1" 200 None
+2021-11-08 10:56:58 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): www.89ip.cn:80
+2021-11-08 10:56:58 [urllib3.connectionpool] DEBUG: http://www.89ip.cn:80 "GET /index_5.html HTTP/1.1" 301 168
+2021-11-08 10:56:58 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.89ip.cn:443
+2021-11-08 10:56:58 [urllib3.connectionpool] DEBUG: https://www.89ip.cn:443 "GET /index_5.html HTTP/1.1" 200 None
+2021-11-08 10:56:58 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'ETL.middlewares.ProxyMiddleware.RandomProxyMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2021-11-08 10:56:58 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2021-11-08 10:56:58 [scrapy.core.engine] INFO: Spider opened
+2021-11-08 10:56:58 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2021-11-08 10:56:58 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2021-11-08 10:56:59 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/robots.txt> (referer: None)
+2021-11-08 10:57:00 [scrapy.core.engine] DEBUG: Crawled (404) <GET https://www.amazon.com/dp/4> (referer: None)
+2021-11-08 10:57:00 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://www.amazon.com/dp/4>: HTTP status code is not handled or not allowed
+2021-11-08 10:57:00 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://www.amazon.com/b?node=20547412011> from <GET https://www.amazon.com/dp/>
+2021-11-08 10:57:01 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/dp/B005L0XY5C> (referer: None)
+2021-11-08 10:57:01 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://www.amazon.com/b?ie=UTF8&node=20547412011> from <GET https://www.amazon.com/b?node=20547412011>
+2021-11-08 10:57:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.amazon.com/dp/B005L0XY5C>
+{'id': 'B005L0XY5C\n', 'price': None, 'title': "BETHENNY'S SKINNYGIRL WORKOUT"}
+2021-11-08 10:57:01 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/dp/B0074JOVGY> (referer: None)
+2021-11-08 10:57:01 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/dp/B00AZ64CSK> (referer: None)
+2021-11-08 10:57:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.amazon.com/dp/B0074JOVGY>
+{'id': 'B0074JOVGY\n', 'price': None, 'title': 'Interlude'}
+2021-11-08 10:57:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.amazon.com/dp/B00AZ64CSK>
+{'id': 'B00AZ64CSK\n', 'price': None, 'title': 'Clash of the Empires'}
+2021-11-08 10:57:01 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/dp/B00HEPCRLE> (referer: None)
+2021-11-08 10:57:02 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.amazon.com/dp/B00HEPCRLE>
+{'id': 'B00HEPCRLE\n', 'price': None, 'title': 'Homefront'}
+2021-11-08 10:57:02 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/dp/B00XL9OXXC> (referer: None)
+2021-11-08 10:57:02 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/b?ie=UTF8&node=20547412011> (referer: None)
+2021-11-08 10:57:02 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/dp/B008R65XWO> (referer: None)
+2021-11-08 10:57:02 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.amazon.com/dp/B00XL9OXXC>
+{'id': 'B00XL9OXXC\n', 'price': None, 'title': 'Community - Season 6'}
+2021-11-08 10:57:02 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.amazon.com/b?ie=UTF8&node=20547412011>
+{'id': '\n'}
+2021-11-08 10:57:02 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.amazon.com/dp/B008R65XWO>
+{'id': 'B008R65XWO\n',
+ 'price': None,
+ 'title': 'Definitely, Maybe / Because I Said So Double Feature'}
+2021-11-08 10:57:02 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.amazon.com/dp/B00UXWCPFI> (referer: None)
+2021-11-08 10:57:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.amazon.com/dp/B00UXWCPFI>
+{'id': 'B00UXWCPFI\n', 'price': None, 'title': 'Nobunagun: Complete Series'}
+2021-11-08 10:57:03 [scrapy.core.engine] INFO: Closing spider (finished)
+2021-11-08 10:57:03 [scrapy.extensions.feedexport] INFO: Stored json feed (8 items) in: res.json
+2021-11-08 10:57:03 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 3461,
+ 'downloader/request_count': 12,
+ 'downloader/request_method_count/GET': 12,
+ 'downloader/response_bytes': 1726656,
+ 'downloader/response_count': 12,
+ 'downloader/response_status_count/200': 9,
+ 'downloader/response_status_count/301': 2,
+ 'downloader/response_status_count/404': 1,
+ 'elapsed_time_seconds': 4.614786,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2021, 11, 8, 2, 57, 3, 156074),
+ 'httperror/response_ignored_count': 1,
+ 'httperror/response_ignored_status_count/404': 1,
+ 'item_scraped_count': 8,
+ 'log_count/DEBUG': 40,
+ 'log_count/INFO': 12,
+ 'response_received_count': 10,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 11,
+ 'scheduler/dequeued/memory': 11,
+ 'scheduler/enqueued': 11,
+ 'scheduler/enqueued/memory': 11,
+ 'start_time': datetime.datetime(2021, 11, 8, 2, 56, 58, 541288)}
+2021-11-08 10:57:03 [scrapy.core.engine] INFO: Spider closed (finished)
