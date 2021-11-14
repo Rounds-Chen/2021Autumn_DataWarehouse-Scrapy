@@ -64,6 +64,7 @@ class RandomProxyMiddleware(object):
 
     def process_request(self, request, spider):
         if len(self.proxies)<10:
+            print("ip池中中ip个数为：",self.proxies,"需要添加新ip")
             p = ProxyFetcher().freeProxy13()
             for _ in p:
                 self.proxies.append(_)

@@ -11,12 +11,12 @@ class EtlItem(scrapy.Item):
     role=scrapy.Field()
     rate=scrapy.Field()
     basic_info=scrapy.Field()
-
-    release_year=scrapy.Field()
-    x_ray=scrapy.Field()
-    director=scrapy.Field()
-    actor=scrapy.Field()
-    gener=scrapy.Field()
+    #
+    # release_year=scrapy.Field()
+    # x_ray=scrapy.Field()
+    # director=scrapy.Field()
+    # actor=scrapy.Field()
+    # gener=scrapy.Field()
 
 
 
@@ -40,7 +40,7 @@ class Demo(scrapy.Spider):
         # self.error_404_id=[]
         # self.error_503_id=[]
 
-        with open(r'ETL/data/asin_test.txt') as f:
+        with open(r'ETL/data/asin.txt') as f:
             for line in f:
                 url=baseUrl+line
                 yield scrapy.Request(url,meta={'asin':line.strip()},
@@ -54,10 +54,10 @@ class Demo(scrapy.Spider):
         # elif response.status==503:
         #     self.error_503_id.append(response.meta['asin'])
 
-        if response.xpath('//div[@class="av-page-desktop avu-retail-page"]')!=[]:
-            return self.parse_retail_page(response)
-        else:
-           return self.parse_dvd(response)
+        # if response.xpath('//div[@class="av-page-desktop avu-retail-page"]')!=[]:
+        #     return self.parse_retail_page(response)
+        # else:
+        return self.parse_dvd(response)
 
     def parse_dvd(self, response):
         item=EtlItem()
@@ -86,7 +86,7 @@ class Demo(scrapy.Spider):
                 key,value=i.xpath('.//span[@class="a-text-bold"]/text()').extract_first(),i.xpath('.//span[2]/text()').extract_first()
                 key=key.split('\n')[0]
                 infos[key]=value
-            item['basic_info']=infos
+            item['basic_info']=str(infos)
 
         except:
             pass

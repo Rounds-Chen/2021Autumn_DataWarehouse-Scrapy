@@ -42,19 +42,19 @@ COOKIES_ENABLED = False
 #   'Accept-Language': 'en',
 #}
 
-# LOG_LEVEL='ERROR'
+LOG_LEVEL='ERROR'
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 SPIDER_MIDDLEWARES = {
    # 'ETL.middlewares.EtlSpiderMiddleware': 543,
-   #  'ETL.middlewares.ProxyMiddleware.RandomProxyMiddleware':501
+    'ETL.middlewares.ProxyMiddleware.RandomProxyMiddleware':501
 }
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
+# DOWNLOADER_MIDDLEWARES = {
 #    'ETL.middlewares.EtlDownloaderMiddleware': 543,
-#}
+# }
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -88,3 +88,8 @@ SPIDER_MIDDLEWARES = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+RETRY_TIMES = 5 # 尝试次数
+
+LOG_STDOUT=True
+LOG_FORMAT='(levelname)s: %(message)s'
