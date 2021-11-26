@@ -25,14 +25,14 @@ CONCURRENT_REQUESTS = 16
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY =1
+# DOWNLOAD_DELAY =1
 # RANDOM_DALAY=1
 # The download delay setting will honor only one of:
-#CONCURRENT_REQUESTS_PER_DOMAIN = 16
-#CONCURRENT_REQUESTS_PER_IP = 16
+CONCURRENT_REQUESTS_PER_DOMAIN = 8
+# CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
-COOKIES_ENABLED = False
+COOKIES_ENABLED = True
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
@@ -52,20 +52,19 @@ COOKIES_ENABLED = False
 
 # USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36'
 
-LOG_LEVEL='WARNING'
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 SPIDER_MIDDLEWARES = {
    # 'ETL.middlewares.EtlSpiderMiddleware': 543,
     'ETL.middlewares.ProxyMiddleware.RandomProxyMiddleware':501,
+    'ETL.middlewares.UserAgentMiddleware.UserAgentMiddleware':502,
 
 }
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-   # 'ETL.middlewares.EtlDownloaderMiddleware': 543,
-# 'ETL.middlewares.UserAgentMiddleware.UserAgentMiddleware':502
+   'ETL.middlewares.DownloaderMiddleware.DownloaderMiddleware': 543,
 #     'ETL.middlewares.RandomDelayMiddleware.RandomDelayMiddleware':503
 }
 
@@ -85,9 +84,9 @@ DOWNLOADER_MIDDLEWARES = {
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
 AUTOTHROTTLE_ENABLED = True
 # The initial download delay
-AUTOTHROTTLE_START_DELAY = 1
+AUTOTHROTTLE_START_DELAY = 0.5
 # The maximum download delay to be set in case of high latencies
-AUTOTHROTTLE_MAX_DELAY = 4
+AUTOTHROTTLE_MAX_DELAY = 5
 # The average number of requests Scrapy should be sending in parallel to
 # each remote server
 #AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0
@@ -102,8 +101,10 @@ HTTPCACHE_ENABLED = True
 # HTTPCACHE_IGNORE_HTTP_CODES = []
 # HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
+RETRY_ENABLED=True
 RETRY_TIMES = 10 # 尝试次数
 
-LOG_STDOUT=True
+
+LOG_LEVEL='WARNING'
 LOG_FORMAT='(levelname)s: %(message)s'
 

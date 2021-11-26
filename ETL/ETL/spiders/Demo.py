@@ -44,8 +44,6 @@ class Demo(scrapy.Spider):
 
     def start_requests(self):
         baseUrl='https://www.amazon.com/dp/'
-        # self.error_404_id=[]
-        # self.error_503_id=[]
         self.null_asin=[]
 
         with open(r'ETL/data/loss_asin.txt') as f:
