@@ -8,11 +8,6 @@ class DownloaderMiddleware:
     # scrapy acts as if the downloader middleware does not modify the
     # passed objects.
 
-    def __init__(self):
-        super(DownloaderMiddleware, self).__init__()
-        self.cur_asin=""
-        self.cur_times=0
-
     @classmethod
     def from_crawler(cls, crawler):
         # This method is used by Scrapy to create your spiders.
@@ -41,20 +36,15 @@ class DownloaderMiddleware:
         # - or raise IgnoreRequest
         try:
             items = response.xpath('//div[@id="detailBullets_feature_div"]')
-            if self.cur_times<=3 and items == []:
-                logging.log(logging.WARNING,"asin "+request.meta['asin']+" re-req...")
-                self.cur_times+=1
-                self.cur_asin=request.meta['asin']
+            if items == []:
+                logging.log(logging.WARNING,request.meta['asin']+" 需要重新请求...")
                 return request
-            else:
-                self.cur_times=0
-                self.cur_asin=""
+
         except:
-            self.cur_times = 0
-            self.cur_asin = ""
             logging.log(logging.WARNING,"DownloaderMiddleware Error!!!")
             return request
 
+        logging.log(logging.WARNING,"{} 爬取结束！！！！!!!!!!".format(request.meta['asin']))
         return response
 
     def process_exception(self, request, exception, spider):

@@ -33,12 +33,12 @@ class Demo(scrapy.Spider):
     allowed_domains=['amazon.com']
 
 
-
-    def close(self, reason):
-        with open("null_asin.txt",'w') as f:
-            f.write('\n'.join(self.null_asin)) # 写入错误信息
-        f.close()
-        print('写入错误信息！！！！！')
+    #
+    # def close(self, reason):
+    #     with open("null_asin.txt",'w') as f:
+    #         f.write('\n'.join(self.null_asin)) # 写入错误信息
+    #     f.close()
+    #     print('写入错误信息！！！！！')
         # with open("error_503.txt",'w') as w:
         #     w.write('\n'.join(self.error_503_id))
 
@@ -46,7 +46,7 @@ class Demo(scrapy.Spider):
         baseUrl='https://www.amazon.com/dp/'
         self.null_asin=[]
 
-        with open(r'ETL/data/loss_asin.txt') as f:
+        with open(r'ETL/data/loss_asin_1.txt') as f:
             for line in f:
                 url=baseUrl+line
                 yield scrapy.Request(url,meta={'asin':line.strip()},

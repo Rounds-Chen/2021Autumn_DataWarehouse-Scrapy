@@ -3,6 +3,7 @@
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 import logging
+import time
 from collections import defaultdict
 from scrapy.exceptions import NotConfigured
 import  requests
@@ -10,15 +11,20 @@ import  requests
 class RandomProxyMiddleware(object):
     def __init__(self):
         self.stats = defaultdict(int)  # 默认值是0    统计次数
-        self.max_failed = 5  # 请求最多不超过35次
+        self.max_failed = 3  # 请求最多不超过35次
+        self.ip= "http://117.161.75.82:3128"
+
 
     @staticmethod
     def get_proxy():
-        return requests.get("http://127.0.0.1:5010/get/").json()
+        ans=requests.get("http://1.15.13.86:5010/get/").json()
+        return ans
 
-    @staticmethod
-    def delete_proxy(proxy):
-        requests.get("http://127.0.0.1:5010/delete/?proxy={}".format(proxy))
+    def delete_proxy(self,proxy):
+        # if requests.get("http://127.0.0.1:5010/count")<10:
+        #     time.sleep(300) # sleep 3min
+        self.stats[proxy]=0
+        requests.get("http://1.15.13.86:5010/delete/?proxy={}".format(proxy[7:]))
 
     @classmethod
     def from_cralwer(cls, crawler):
@@ -31,20 +37,32 @@ class RandomProxyMiddleware(object):
         return cls(crawler.settings)  # cls（）实际调用的是 init()函数，如果init接受参数，cls就需要参数
 
     def process_request(self, request, spider):
-        if not request.meta.get("proxy") and request.url not in spider.start_urls:
-            request.meta["proxy"] = self.get_proxy().get("proxy")
+        if not request.meta.get("proxy") :
+            request.meta["proxy"] = self.ip
+            # logging.log(logging.WARNING, "{} 没有代理，设置代理ip:{}".format(request.meta['asin'],request.meta["proxy"]))
+        # logging.log(logging.WARNING,"{} 已有代理，下一步。。。".format(request.meta['asin']))
+        return None
 
     def process_response(self, request, response, spider):
         cur_proxy = request.meta.get('proxy')
-        if response.status > 400:
+        logging.log(logging.WARNING,"回复状态码: {}".format(response.status))
+
+        items = response.xpath('//div[@id="detailBullets_feature_div"]')
+        if response.status !=200 :
             self.stats[cur_proxy] += 1
-            logging.log(logging.WARNING,"当前ip{}，第{}次出现错误状态码".format(cur_proxy, self.stats[cur_proxy]))
-        if self.stats[cur_proxy] >= self.max_failed:  # 当前ip失败超过3次
-            logging.log(logging.WARNING,"当前状态码是{}，代理{}可能被封了".format(response.status, cur_proxy))
-            self.delete_proxy(cur_proxy)
-            del request.meta['proxy']
+            logging.log(logging.WARNING,"代理ip {}，第{}次出现错误状态码{}".format(cur_proxy, self.stats[cur_proxy],response.status))
+            if self.stats[cur_proxy] >= self.max_failed:  # 当前ip失败超过5次
+                logging.log(logging.WARNING,"代理 {}可能被封了".format(cur_proxy))
+                if self.ip==cur_proxy:
+                    self.ip="http://"+self.get_proxy()['proxy']
+                    logging.log(logging.WARNING,'新ip',self.ip)
+                request.meta['proxy']=self.ip
+                self.delete_proxy(cur_proxy)
             return request
 
+        # if items==[]:
+        #     logging.log(logging.WARNING,'{} 需要重新爬取'.format(request.meta['asin']))
+        #     return request
         return response
 
     def process_exception(self, request, exception, spider):

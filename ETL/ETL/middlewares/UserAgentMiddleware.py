@@ -1,5 +1,5 @@
 from fake_useragent import UserAgent
-
+import logging
 
 class UserAgentMiddleware:
     """Custom UAMiddleware."""
@@ -14,3 +14,5 @@ class UserAgentMiddleware:
 
     def process_request(self, request, spider):
         request.headers['User-Agent'] = self.ua.random
+        # logging.log(logging.WARNING,"使用随机user-agent.")
+        return None
