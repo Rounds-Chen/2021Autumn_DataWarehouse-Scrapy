@@ -19,7 +19,7 @@ NEWSPIDER_MODULE = 'ETL.spiders'
 ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-CONCURRENT_REQUESTS = 32
+CONCURRENT_REQUESTS = 16
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
@@ -42,13 +42,13 @@ COOKIES_ENABLED = True
 #   'Accept-Language': 'en',
 # }
 
-# DEFAULT_REQUEST_HEADERS = {
-#     'Upgrade-Insecure-Requests': 1,
-#     'Pragma': 'no-cache',
-#     'Cache-Control': 'no-cache',
-# }
-
-
+DEFAULT_REQUEST_HEADERS = {
+    'Upgrade-Insecure-Requests': 1,
+    'Pragma': 'no-cache',
+    'Cache-Control': 'no-cache',
+}
+# USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36'
+USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36'
 # USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36'
 
 # Enable or disable spider middlewares
@@ -57,17 +57,17 @@ SPIDER_MIDDLEWARES = {
     # 'ETL.middlewares.EtlSpiderMiddleware': 543,
 
 }
-
+TELNETCONSOLE_ENABLED = False
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-    'ETL.middlewares.UserAgentMiddleware.UserAgentMiddleware': 399,
-    # 'ETL.middlewares.ProxyMiddleware.RandomProxyMiddleware': 404,
+    # 'ETL.middlewares.UserAgentMiddleware.UserAgentMiddleware': 502,
+    'ETL.middlewares.ProxyMiddleware.RandomProxyMiddleware': 502,
     # 'ETL.middlewares.DownloaderMiddleware.DownloaderMiddleware': 500,
     #     'ETL.middlewares.RandomDelayMiddleware.RandomDelayMiddleware':399,
-    'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
-'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware':None,
-    'scrapy.downloadermiddlewares.cookies.CookiesMiddleware': 700,
+    # 'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
+# 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware':None,
+#     'scrapy.downloadermiddlewares.cookies.CookiesMiddleware': 700,
     # 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': None,
 }
 
@@ -85,11 +85,11 @@ DOWNLOADER_MIDDLEWARES = {
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
-AUTOTHROTTLE_ENABLED = True
+AUTOTHROTTLE_ENABLED = False
 # The initial download delay
-AUTOTHROTTLE_START_DELAY = 0.25
+# AUTOTHROTTLE_START_DELAY = 0.5
 # The maximum download delay to be set in case of high latencies
-AUTOTHROTTLE_MAX_DELAY = 3
+# AUTOTHROTTLE_MAX_DELAY = 5
 # The average number of requests Scrapy should be sending in parallel to
 # each remote server
 # AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0

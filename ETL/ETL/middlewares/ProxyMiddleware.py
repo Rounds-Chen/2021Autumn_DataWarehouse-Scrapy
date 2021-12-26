@@ -7,11 +7,12 @@ import time
 from collections import defaultdict
 from scrapy.exceptions import NotConfigured
 import  requests
+import base64
 
 class RandomProxyMiddleware(object):
     def __init__(self):
         self.stats = defaultdict(int)  # 默认值是0    统计次数
-        self.max_failed = 3  # 请求最多不超过35次
+        self.max_failed = 10  # 请求最多不超过35次
         self.ip= "http://117.161.75.82:3128"
 
 
@@ -39,6 +40,10 @@ class RandomProxyMiddleware(object):
     def process_request(self, request, spider):
         if not request.meta.get("proxy") :
             request.meta["proxy"] = self.ip
+
+            # auth = base64.b64encode(bytes("USERNAME:PASSWORD", 'utf-8'))
+            # request.headers['Proxy-Authorization'] = b'Basic ' + auth
+            # request.meta['proxy'] = 'http://' + self.ip
             # logging.log(logging.WARNING, "{} 没有代理，设置代理ip:{}".format(request.meta['asin'],request.meta["proxy"]))
         # logging.log(logging.WARNING,"{} 已有代理，下一步。。。".format(request.meta['asin']))
         return None
